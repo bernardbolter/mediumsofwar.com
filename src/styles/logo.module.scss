@@ -1,0 +1,43 @@
+@import './vars.scss';
+
+.container {
+    position: fixed;
+    z-index: 101;
+    top: 13px;
+    left: 13px;
+    margin: 0;
+    padding: 0;
+
+    h1 {
+        font-weight: 900;
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+        color: $warm;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+
+
+    h2 {
+        font-weight: 700;
+        font-size: 26px;
+        color: $war;
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 20px;
+        color: $warm;
+        padding: 0;
+        margin: 0;
+    }
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "title" : "World War I",
+        "medium" : "Black & White",
+        "short" : "WWI",
+        "image" : "../images/WWI_in_B&W.jpg",
+        "imageSlug" : "WWI_in_B&W",
+        "extension" : "jpg"
+    },
+    {
+        "title" : "Wolrd War II",
+        "medium" : "Color",
+        "short" : "WWII",
+        "image" : "../images/WWII_in_Color.jpg",
+        "imageSlug" : "WWII_in_Color",
+        "extension" : "jpg"
+    }
+]
