@@ -6,7 +6,8 @@
     top: 13px;
     left: 13px;
     margin: 0;
-    padding: 0;
+    padding: 0 10px 10px 0;
+    background: $light;
 
     h1 {
         font-weight: 900;
@@ -23,19 +24,20 @@
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
+    margin: -7px 0 0 0;
 
 
     h2 {
         font-weight: 700;
-        font-size: 26px;
+        font-size: 25px;
         color: $war;
         margin: 0;
         padding: 0;
     }
 
     p {
-        font-weight: 400;
-        font-size: 20px;
+        font-weight: 500;
+        font-size: 16px;
         color: $warm;
         padding: 0;
         margin: 0;

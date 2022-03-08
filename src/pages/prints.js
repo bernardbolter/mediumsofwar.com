@@ -1,30 +1,33 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+import Logo from "../components/Logo"
+
 import * as styles from '../styles/prints.module.scss'
 
 const Prints = () => {
     return (
-        <AnimatePresence exitBeforeEnter>
+        <>
+            <Logo />
             <motion.div
                 className={styles.container}
                 initial={{
-                    translateY: 0
+                    translateY: "-100vh"
                 }}
                 animate={{
-                    translateY: -100
-                }}
-                exit={{
                     translateY: 0
                 }}
+                exit={{
+                    translateY: "-100vh"
+                }}
                 transition={{
-                    duration: 5,
+                    duration: 1,
                     ease: "linear"
                 }}
             >
                 <p>Prints</p>
             </motion.div>
-        </AnimatePresence>
+        </>
     )
 }
 

@@ -7,26 +7,26 @@ const WarProvider = ({ children }) => {
     const data = useStaticQuery(graphql`
         query WarQuery {
             allImageSharp {
-            edges {
-                node {
-                gatsbyImageData
-                original {
-                    src
+                edges {
+                    node {
+                    gatsbyImageData
+                        original {
+                            src
+                        }
+                    }
                 }
-                }
-            }
             }
             allPaintingsJson {
-            edges {
-                node {
-                id
-                image
-                imageSlug
-                medium
-                short
-                title
+                edges {
+                    node {
+                        id
+                        image
+                        imageSlug
+                        medium
+                        short
+                        title
+                    }
                 }
-            }
             }
         }
     `)
@@ -36,7 +36,9 @@ const WarProvider = ({ children }) => {
     const [war, setWar] = useState({
         paintingPosition: 0,
         paintings: [],
-        firstLoad: true
+        firstLoad: true,
+        detailFront: true,
+        enterPrint: true
     })
 
     useEffect(() => {

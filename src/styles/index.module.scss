@@ -17,6 +17,7 @@
 
 .printLink {
     position: fixed;
+    z-index: 4;
     top: 5px;
     left: 50%;
     display: flex;
@@ -24,6 +25,8 @@
     justify-content: center;
     align-items: flex-start;
     cursor: pointer;
+    background: $light;
+    padding: 3px;
 
     p {
         font-size: 16px;
@@ -42,50 +45,171 @@
 
 .leftLink {
     position: fixed;
+    z-index: 4;
     top: 50%;
     left: 5px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    background: $light;
+    padding: 3px;
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.6);
+    }
 
     svg {
-        width: 20px;
+        width: 10px;
+        margin: 0 0 0 5px;
+        transform: rotate(-90deg);
+        opacity: .6;
     }
 }
 
 .rightLink {
     position: fixed;
+    z-index: 4;
     top: 50%;
     right: 5px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    background: $light;
+    padding: 3px;
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.6);
+    }
 
     svg {
-        width: 20px;
+        width: 10px;
+        margin: 0 5px 0 0;
+        transform: rotate(90deg);
+        opacity: .6;
     }
 }
 
 .planLink {
     position: fixed;
+    z-index: 4;
     bottom: 5px;
     left: 50%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    background: $light;
+    padding: 3px;
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.6);
+    }
 
     svg {
-        width: 20px;
+        width: 10px;
+        margin: 0 0 0 5px;
+        transform: rotate(180deg);
+        opacity: .6;
     }
 }
 
 .painting {
-    width: 80%;
-    margin: 10%;
     padding: 0 20px;
     position: fixed;
-    z-index: 2;
+}
+
+.detail {
+    position: fixed;
+    background: rgba(255,255,255,.93);
+    left: 5%;
+    bottom: 5%;
+    padding: 2%;
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 33px;
+        font-weight: 900;
+        color: $dark;
+        padding: 0;
+        margin: 0;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 23px;
+        font-weight: 700;
+        color: $dark;
+        opacity: .95;
+        padding: 0;
+        margin: 0;
+    }
+
+    h3 {
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 14px;
+        margin: 0;
+        padding: 0;
+        color: $dark;
+        opacity: .9;
+    }
+
+    .sizeWrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0 0 0;
+    }
+
+    h4 {
+        font-size: 16px;
+        color: $dark;
+        opacity: .85;
+        padding: 0;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    h5 {
+        font-size: 20px;
+        color: $dark;
+        padding: 0;
+        margin: 0;
+        font-weight: 900;
+        opacity: .95;
+    }
+
+    p {
+        font-family: sans-serif;
+        font-size: 11px;
+        font-weight: 300;
+        color: $dark;
+        opacity: .8;
+        padding: 0;
+        margin: 0;
+    }
+}
+.study {
+    margin: 0 0 15px 0 !important;
 }
