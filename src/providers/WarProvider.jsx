@@ -35,7 +35,8 @@ const WarProvider = ({ children }) => {
 
     const [war, setWar] = useState({
         paintingPosition: 0,
-        paintings: []
+        paintings: [],
+        firstLoad: true
     })
 
     useEffect(() => {

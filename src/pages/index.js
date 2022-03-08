@@ -1,10 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useMemo, useContext } from 'react'
 import { useStaticQuery, graphql, navigate } from 'gatsby'
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import { AnimatePresence, motion } from 'framer-motion'
 import { WarContext } from "../providers/WarProvider"
 
 import { useWindowSize } from "../helpers/useWindowSize"
+
+import {
+  first,
+  left,
+  right
+} from '../animations/paintingAnimations'
 
 import * as styles from '../styles/index.module.scss'
 import '../styles/base.scss'
@@ -13,6 +19,35 @@ const IndexPage = () => {
   const [war, setWar] = useContext(WarContext)
   console.log(war)
   const size = useWindowSize()
+
+  const paintings = useMemo(() => {
+    if (war.paintings.length !== 0) {
+      return (
+        <motion.div
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={
+            war.paintingPosition == 0 && war.firstLoad
+            ? first 
+            : war.paintingPosition === 0
+              ? left
+              : right    
+          }
+          transition={{
+              duration: 2
+          }}
+          key={war.paintingPosition}
+          className={styles.painting}
+        >
+          <GatsbyImage 
+            image={war.paintings[war.paintingPosition].artwork} 
+            alt={war.paintings[war.paintingPosition].title} 
+          />
+        </motion.div>
+      )
+    }
+  }, [war.paintingPosition, war.paintings])
 
   return (
     <main className={styles.container}>
@@ -28,7 +63,7 @@ const IndexPage = () => {
       {war.paintingPosition !== 0 && (
         <div 
           className={styles.leftLink}
-          onClick={() => setWar(state => ({ ...state, paintingPosition: state.paintingPosition - 1 }))}
+          onClick={() => setWar(state => ({ ...state, paintingPosition: state.paintingPosition - 1, firstLoad: false }))}
         >
           <p>WWI</p>
           <svg viewBox="0 0 50 89">
@@ -37,32 +72,14 @@ const IndexPage = () => {
         </div>
       )}
 
-      <motion.div
-        className="paintings-container"
-        style={{ width: `${war.paintings.length * 100}%` }}
-      >
-        {war.paintings.map(painting => {
-          console.log(painting)
-          // const image = getImage(painting.image)
-          // console.log(image)
-          return (
-          <div className="painting" key={painting.id}>
-            <GatsbyImage image={painting.artwork} alt="art" />
-            {/* <StaticImage
-              // image={image}
-              src={painting.image}
-              alt={painting.title}
-              placeholder="tracedSVG"
-              layout="fullWidth"
-            /> */}
-          </div>
-        )})}
-      </motion.div>
+      <AnimatePresence inital={false}>
+        {paintings}
+      </AnimatePresence>
 
-      {war.paintingPosition !== war.paintings.length && (
+      {war.paintingPosition !== war.paintings.length - 1 && (
         <div 
           className={styles.rightLink}
-          onClick={() => setWar(state => ({ ...state, paintingPosition: state.paintingPosition + 1 }))}
+          onClick={() => setWar(state => ({ ...state, paintingPosition: state.paintingPosition + 1, firstLoad: false }))}
         >
           <p>WWII</p>
           <svg viewBox="0 0 50 89">
