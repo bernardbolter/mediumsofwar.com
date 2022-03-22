@@ -19,10 +19,15 @@ const WarProvider = ({ children }) => {
             allPaintingsJson {
                 edges {
                     node {
+                        colors
+                        completed
+                        extension
+                        how
                         id
-                        image
                         imageSlug
                         medium
+                        material
+                        palette
                         short
                         title
                     }
@@ -36,31 +41,36 @@ const WarProvider = ({ children }) => {
     const [war, setWar] = useState({
         paintingPosition: 0,
         paintings: [],
+        sketches: [],
         firstLoad: true,
         detailFront: true,
-        enterPrint: true
+        enterPrint: true,
+        planPosition: 0
     })
 
     useEffect(() => {
         const paintingsArray = []
+        const sketchesArray = []
         if (data.allPaintingsJson.edges.length !== 0) {
             data.allPaintingsJson.edges.map(painting => {
-                var paintingsObject = {}
-                data.allImageSharp.edges.map(image => {
-                    
-                    if (image.node.original.src.toLowerCase().includes(painting.node.imageSlug.toLowerCase())) {
-                        paintingsObject = {
-                            ...painting.node,
-                            artwork: image.node.gatsbyImageData
+                sketchesArray.push(painting)
+                if (painting.node.completed) {
+                    var paintingsObject = {}
+                    data.allImageSharp.edges.map(image => {
+                        
+                        if (image.node.original.src.toLowerCase().includes(painting.node.imageSlug.toLowerCase())) {
+                            paintingsObject = {
+                                ...painting.node,
+                                artwork: image.node.gatsbyImageData
+                            }
                         }
-                    }
-                })
-                paintingsArray.push(paintingsObject)
+                    })
+                    paintingsArray.push(paintingsObject)
+                }
             })
-            
         }
-        console.log(paintingsArray)
-        setWar(state => ({ ...state, paintings: paintingsArray }))
+
+        setWar(state => ({ ...state, paintings: paintingsArray, sketches: sketchesArray }))
     }, [data])
     
     return (

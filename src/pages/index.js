@@ -121,13 +121,13 @@ const IndexPage = () => {
           className={styles.printLink}
           onClick={() => {
             setWar(state => ({  ...state, enterPrint: true }))
-            navigate('/prints/')
+            navigate('/plan/')
           }}
         >
           <svg viewBox="0 0 50 89">
             <path fillRule="evenodd" clipRule="evenodd" d="M50 88.7903V70.8187L25.0889 50.7118L0 70.9963L0.177667 88.7903L24.9111 68.1495L50 88.7903ZM50 38.0784V20.2845L25.0889 0L0 20.2845L0.177667 38.0784L24.9111 17.6163L50 38.0784ZM50 63.345V45.551L25.0889 25.2666L0 45.551L0.177667 63.345L24.9111 42.8829L50 63.345Z" />
           </svg>
-          <p>Prints</p>
+          <p>the Plan</p>
         </div>
         {war.paintingPosition !== 0 && (
           <motion.div
@@ -172,10 +172,10 @@ const IndexPage = () => {
           className={styles.planLink}
           onClick={() => {
             setWar(state => ({  ...state, enterPrint: false }))
-            navigate('/plan/')
+            navigate('/prints/')
           }} 
         >
-          <p>The Plans</p>
+          <p>Prints</p>
           <svg viewBox="0 0 50 89">
               <path fillRule="evenodd" clipRule="evenodd" d="M50 88.7903V70.8187L25.0889 50.7118L0 70.9963L0.177667 88.7903L24.9111 68.1495L50 88.7903ZM50 38.0784V20.2845L25.0889 0L0 20.2845L0.177667 38.0784L24.9111 17.6163L50 38.0784ZM50 63.345V45.551L25.0889 25.2666L0 45.551L0.177667 63.345L24.9111 42.8829L50 63.345Z" />
             </svg>
