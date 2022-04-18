@@ -162,7 +162,17 @@
 .enlarge {
     position: fixed;
     z-index: 900;
-    right: 50px;
-    bottom: 50px;
+    right: 5%;
+    bottom: 5%;
     font-size: 30px;
+    width: 60px;
+    height: 60px;
+    opacity: .7;
+    transition: opacity .5s ease;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+        transition: opacity .5s ease;
+    }
 }

@@ -36,7 +36,7 @@ const WarProvider = ({ children }) => {
         }
     `)
 
-    console.log(data);
+    // console.log(data);
 
     const [war, setWar] = useState({
         paintingPosition: 0,
@@ -49,7 +49,9 @@ const WarProvider = ({ children }) => {
         passThroughPrintToPlan: true,
         planPosition: 0,
         printPosition: 0,
-        viewEnlarge: false
+        viewEnlarge: false,
+        controlledPosition: { x: 0, y: 0 },
+        bounds: { left: 0, top: 0, right: 0, bottom: 0 }
     })
 
     useEffect(() => {
