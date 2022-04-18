@@ -43,66 +43,6 @@
     }
 }
 
-.leftLink {
-    position: fixed;
-    z-index: 4;
-    top: 50%;
-    left: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    cursor: pointer;
-    background: $light;
-    padding: 3px;
-
-    p {
-        font-size: 16px;
-        font-weight: 700;
-        margin: 0;
-        padding: 0;
-        text-transform: uppercase;
-        color: rgba(0,0,0,.6);
-    }
-
-    svg {
-        width: 10px;
-        margin: 0 0 0 5px;
-        transform: rotate(-90deg);
-        opacity: .6;
-    }
-}
-
-.rightLink {
-    position: fixed;
-    z-index: 4;
-    top: 50%;
-    right: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    cursor: pointer;
-    background: $light;
-    padding: 3px;
-
-    p {
-        font-size: 16px;
-        font-weight: 700;
-        margin: 0;
-        padding: 0;
-        text-transform: uppercase;
-        color: rgba(0,0,0,.6);
-    }
-
-    svg {
-        width: 10px;
-        margin: 0 5px 0 0;
-        transform: rotate(90deg);
-        opacity: .6;
-    }
-}
-
 .planLink {
     position: fixed;
     z-index: 4;
@@ -144,6 +84,7 @@
     left: 5%;
     bottom: 5%;
     padding: 2%;
+    width: 170px;
 
     h1 {
         text-transform: uppercase;
@@ -166,12 +107,13 @@
 
     h3 {
         font-family: sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 14px;
         margin: 0;
         padding: 0;
         color: $dark;
         opacity: .9;
+        font-family: $body;
     }
 
     .sizeWrap {
@@ -183,33 +125,44 @@
     }
 
     h4 {
-        font-size: 16px;
+        font-size: 11px;
         color: $dark;
         opacity: .85;
         padding: 0;
         margin: 0;
         font-weight: 400;
+        font-family: $body;
     }
 
     h5 {
-        font-size: 20px;
+        font-size: 16px;
         color: $dark;
         padding: 0;
         margin: 0;
-        font-weight: 900;
+        font-weight: 700;
         opacity: .95;
+        font-family: $body;
     }
 
     p {
         font-family: sans-serif;
         font-size: 11px;
-        font-weight: 300;
+        font-weight: 400;
         color: $dark;
         opacity: .8;
         padding: 0;
         margin: 0;
+        font-family: $body;
     }
 }
 .study {
     margin: 0 0 15px 0 !important;
+}
+
+.enlarge {
+    position: fixed;
+    z-index: 900;
+    right: 50px;
+    bottom: 50px;
+    font-size: 30px;
 }

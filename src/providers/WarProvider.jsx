@@ -44,8 +44,12 @@ const WarProvider = ({ children }) => {
         sketches: [],
         firstLoad: true,
         detailFront: true,
-        enterPrint: true,
-        planPosition: 0
+        enterFromPlan: true,
+        passThroughPlanToPrint: false,
+        passThroughPrintToPlan: true,
+        planPosition: 0,
+        printPosition: 0,
+        viewEnlarge: false
     })
 
     useEffect(() => {

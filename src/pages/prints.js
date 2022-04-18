@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import Logo from "../components/Logo"
 
@@ -12,13 +12,13 @@ const Prints = () => {
             <motion.div
                 className={styles.container}
                 initial={{
-                    translateY: "-100vh"
+                    translateY: "100vh"
                 }}
                 animate={{
                     translateY: 0
                 }}
                 exit={{
-                    translateY: "-100vh"
+                    translateY: "100vh"
                 }}
                 transition={{
                     duration: 1,

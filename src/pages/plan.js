@@ -65,29 +65,19 @@ const Plan = () => {
             <motion.div
                 className={styles.container}
                 initial={{
-                    translateY: "100vh"
+                    translateY: "-100vh"
                 }}
                 animate={{
                     translateY: 0
                 }}
                 exit={{
-                    translateY: "100vh"
+                    translateY: "-100vh"
                 }}
                 transition={{
                     duration: 1,
                     ease: "linear"
                 }}
             >
-                {/* <div className={styles.text}>
-                    <h1 className={styles.thatline}>Ugh godard vape esse listicle reprehenderit intelligentsia man bun before they sold out vegan distillery helvetica tacos officia ramps.</h1>
-                    <h2 className={styles.description}>Yr palo santo blue bottle deep v fingerstache exercitation kitsch disrupt raw denim jean shorts. Sustainable cillum mustache lumbersexual scenester hot chicken +1 lomo typewriter. Id chicharrones kombucha woke fixie. Man bun fugiat chartreuse franzen lo-fi shaman waistcoat synth mollit ullamco.</h2>
-                    <h3 className={styles.wrapitup}>Beard retro semiotics, you probably haven't heard of them paleo gastropub crucifix bitters street art authentic VHS mlkshk. Mollit cold-pressed vegan master cleanse cray incididunt you probably haven't heard of them nostrud williamsburg.</h3>
-                </div>
-                <div className={styles.sketchesContainer}>
-                    {war.sketches.map((sketch, i) => {
-                        return <Sketch sketch={sketch} height={.10} dimensions={i === 0 ? true : false} />
-                    })}
-                </div> */}
 
                 {war.planPosition !== 0 && (
                     <motion.div

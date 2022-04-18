@@ -1,0 +1,61 @@
+@import './vars.scss';
+
+.leftLink {
+    position: fixed;
+    z-index: 4;
+    top: 50%;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+    background: $light;
+    padding: 3px;
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.6);
+    }
+
+    svg {
+        width: 10px;
+        margin: 0 0 0 5px;
+        transform: rotate(-90deg);
+        opacity: .6;
+    }
+}
+
+.rightLink {
+    position: fixed;
+    z-index: 4;
+    top: 50%;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    background: $light;
+    padding: 3px;
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        color: rgba(0,0,0,.6);
+    }
+
+    svg {
+        width: 10px;
+        margin: 0 5px 0 0;
+        transform: rotate(90deg);
+        opacity: .6;
+    }
+}
