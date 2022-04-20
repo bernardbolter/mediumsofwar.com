@@ -75,24 +75,30 @@
     ],
 "plans" : [
         {
-            "slug" : "about"
+            "slug" : "about",
+            "short" : "About"
         },
         {
-            "slug" : "pitch"
+            "slug" : "pitch",
+            "short" : "Pitch"
         },
         {
-            "slug" : "sketches"
+            "slug" : "sketches",
+            "short" : "Sketches"
         },
         {
-            "slug" : "support"
+            "slug" : "support",
+            "short" : "Support"
         }
     ],
 "prints" : [
         {
-            "slug" : "prints"
+            "slug" : "prints",
+            "short" : "Prints"
         },
         {
-            "slug" : "buy"
+            "slug" : "buy",
+            "short" : "Buy"
         }
     ]
 }

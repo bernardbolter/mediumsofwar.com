@@ -34,9 +34,11 @@ const WarProvider = ({ children }) => {
                         }
                         plans {
                             slug
+                            short
                         }
                         prints {
                             slug
+                            short
                         }
                     }
                 }

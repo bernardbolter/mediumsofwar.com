@@ -34,7 +34,7 @@ const Prints = ({ location }) => {
             >
                 <h1>Prints</h1>
             </motion.div>
-            <SideNav />
+            <SideNav location={location} />
             <Nav location={location} />
         </>
     )

@@ -29,12 +29,12 @@ const IndexPage = ({ location }) => {
       setTimeout(() => {
         navigate('/prints/')
         setWar(state => ({ ...state, passThroughPlansToPrints: false }))
-      }, 1500)
+      }, 1000)
     } else if (war.passThroughPrintsToPlans) {
       setTimeout(() => {
         navigate('/plan/')
         setWar(state => ({ ...state, passThroughPrintsToPlans: false}))
-      }, 1500)
+      }, 1000)
     } else {
       setWar(state => ({
         ...state,
@@ -61,7 +61,7 @@ const IndexPage = ({ location }) => {
           animate="animate"
           exit="exit"
           variants={
-            war.paintingPosition === 0 && war.firstLoad
+            war.firstLoad || war.passThroughPlansToPrints || war.passThroughPrintsToPlans
             ? first 
             : war.paintingPosition === 0
               ? left
