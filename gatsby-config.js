@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'paintings',
+        name: 'wardata',
         path: './src/data/'
       }
     },

@@ -1,74 +1,98 @@
-[
-    {
-        "title" : "American Civil War",
-        "how" : "with",
-        "medium" : "Line",
-        "short" : "Civil War",
-        "image" : "../images/American_Civil_War_with_Line.jpg",
-        "imageSlug" : "American_Civil_War_with_Line",
-        "extension" : "jpg",
-        "material" : "Drawings and Etchings",
-        "palette" : "Greyscale",
-        "colors" : [
-            "#ffffff",
-            "#666666",
-            "#aaaaaa",
-            "#000000"
-        ],
-        "completed" : false
-    },
-    {
-        "title" : "World War I",
-        "how" : "in",
-        "medium" : "Black & White",
-        "short" : "WWI",
-        "image" : "../images/WWI_in_B&W.jpg",
-        "imageSlug" : "WWI_in_B&W",
-        "extension" : "jpg",
-        "material" : "Black & White Photographs",
-        "palette" : "Muted Colors",
-        "colors" : [
-            "#d2eaea",
-            "#b6b5b0",
-            "#d9e0df",
-            "#e7e2ce"
-        ],
-        "completed" : true
-    },
-    {
-        "title" : "World War II",
-        "how" : "in",
-        "medium" : "Color",
-        "short" : "WWII",
-        "image" : "../images/WWII_in_Color.jpg",
-        "imageSlug" : "WWII_in_Color",
-        "extension" : "jpg",
-        "material" : "Color Photographs",
-        "palette" : "Deep Colors",
-        "colors" : [
-            "#97cede",
-            "#c8b89d",
-            "#7fa566",
-            "#24597a"
-        ],
-        "completed" : true
-    },
-    {
-        "title" : "Vietnam War",
-        "how" : "on",
-        "medium" : "Film",
-        "short" : "Vietnam",
-        "image" : "../images/Vietnam_War_on_Film.jpg",
-        "imageSlug" : "Vietnam_War_on_Film",
-        "extension" : "jpg",
-        "material" : "Film Stills",
-        "palette" : "Bright Colors",
-        "colors" : [
-            "#3ca9eb",
-            "#acb015",
-            "#f83420",
-            "#dcb75b"
-        ],
-        "completed" : false
-    }
-]
+{
+"paintings" : [
+        {
+            "title" : "American Civil War",
+            "how" : "with",
+            "medium" : "Line",
+            "short" : "Civil War",
+            "image" : "../images/American_Civil_War_with_Line.jpg",
+            "imageSlug" : "American_Civil_War_with_Line",
+            "extension" : "jpg",
+            "material" : "Drawings and Etchings",
+            "palette" : "Greyscale",
+            "colors" : [
+                "#ffffff",
+                "#666666",
+                "#aaaaaa",
+                "#000000"
+            ],
+            "completed" : false
+        },
+        {
+            "title" : "World War I",
+            "how" : "in",
+            "medium" : "Black & White",
+            "short" : "WWI",
+            "image" : "../images/WWI_in_B&W.jpg",
+            "imageSlug" : "WWI_in_B&W",
+            "extension" : "jpg",
+            "material" : "Black & White Photographs",
+            "palette" : "Muted Colors",
+            "colors" : [
+                "#d2eaea",
+                "#b6b5b0",
+                "#d9e0df",
+                "#e7e2ce"
+            ],
+            "completed" : true
+        },
+        {
+            "title" : "World War II",
+            "how" : "in",
+            "medium" : "Color",
+            "short" : "WWII",
+            "image" : "../images/WWII_in_Color.jpg",
+            "imageSlug" : "WWII_in_Color",
+            "extension" : "jpg",
+            "material" : "Color Photographs",
+            "palette" : "Deep Colors",
+            "colors" : [
+                "#97cede",
+                "#c8b89d",
+                "#7fa566",
+                "#24597a"
+            ],
+            "completed" : true
+        },
+        {
+            "title" : "Vietnam War",
+            "how" : "on",
+            "medium" : "Film",
+            "short" : "Vietnam",
+            "image" : "../images/Vietnam_War_on_Film.jpg",
+            "imageSlug" : "Vietnam_War_on_Film",
+            "extension" : "jpg",
+            "material" : "Film Stills",
+            "palette" : "Bright Colors",
+            "colors" : [
+                "#3ca9eb",
+                "#acb015",
+                "#f83420",
+                "#dcb75b"
+            ],
+            "completed" : false
+        }
+    ],
+"plans" : [
+        {
+            "slug" : "about"
+        },
+        {
+            "slug" : "pitch"
+        },
+        {
+            "slug" : "sketches"
+        },
+        {
+            "slug" : "support"
+        }
+    ],
+"prints" : [
+        {
+            "slug" : "prints"
+        },
+        {
+            "slug" : "buy"
+        }
+    ]
+}
