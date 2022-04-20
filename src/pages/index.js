@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useContext } from 'react'
+import React, { useEffect, useMemo, useContext } from 'react'
 import { navigate } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
 import { AnimatePresence, motion } from 'framer-motion'
@@ -22,25 +22,37 @@ import '../styles/base.scss'
 const IndexPage = ({ location }) => {
   const [war, setWar] = useContext(WarContext)
   const size = useWindowSize()
+  console.log("exit: ", war.movingUp)
 
-  // const [imageUrl, setImageUrl] = useState('')
-
-  //   useEffect(() => {
-  //       setImageUrl(`../images/${war.paintings[war.paintingPosition].imageSlug}.jpg`)
-  //   }, [war.viewEnlarge])
+  useEffect(() => {
+    if (war.passThroughPlansToPrints) {
+      setTimeout(() => {
+        navigate('/prints/')
+        setWar(state => ({ ...state, passThroughPlansToPrints: false }))
+      }, 1500)
+    } else if (war.passThroughPrintsToPlans) {
+      setTimeout(() => {
+        navigate('/plan/')
+        setWar(state => ({ ...state, passThroughPrintsToPlans: false}))
+      }, 1500)
+    } else {
+      setWar(state => ({
+        ...state,
+        passThroughPlansToPrints: false,
+        passThroughPrintsToPlans: false
+      }))
+    }
+  }, [])
 
   const paintings = useMemo(() => {
     if (war.paintings.length !== 0) {
 
       var paintingWidth
-      // var paintingMargin
 
       if (size.height < size.width) {
         paintingWidth = size.height * .9
-        // paintingMargin = (size.width - (size.height * .9)) / 2
       } else {
         paintingWidth = size.width * .9
-        // paintingMargin = size.width * .1
       }
 
       return (
@@ -49,7 +61,7 @@ const IndexPage = ({ location }) => {
           animate="animate"
           exit="exit"
           variants={
-            war.paintingPosition == 0 && war.firstLoad
+            war.paintingPosition === 0 && war.firstLoad
             ? first 
             : war.paintingPosition === 0
               ? left
@@ -63,7 +75,6 @@ const IndexPage = ({ location }) => {
           style={{ 
             zIndex: war.detailFront ? 2 : 5,
             width: paintingWidth
-            // margin: paintingMargin
           }}
           onClick={() => setWar(state => ({ ...state, detailFront: !state.detailFront }))}
         >
@@ -113,14 +124,18 @@ const IndexPage = ({ location }) => {
         className={styles.container}
         initial={{
           opacity: war.firstLoad ? 0 : 1,
-          translateY: war.firstLoad ? 0 : "100vh"
+          translateY: war.firstLoad 
+            ? 0 
+            : war.movingUp
+              ? "-100vh"
+              : "100vh"
         }}
         animate={{
           opacity: 1,
           translateY: 0
         }}
         exit={{
-            translateY: "100vh"
+            translateY: war.movingUp ? "100vh" : "-100vh"
         }}
         transition={{
             duration: 1,
@@ -145,7 +160,7 @@ const IndexPage = ({ location }) => {
             <path d="M31.6459 26.6313H28.3801V23.3656C28.425 23.05 28.331 22.7306 28.1221 22.4896C27.9132 22.249 27.6103 22.1108 27.2917 22.1108C26.9731 22.1108 26.6699 22.249 26.461 22.4896C26.2524 22.7306 26.1581 23.05 26.2031 23.3656V26.6313H22.9409C22.6237 26.5823 22.3012 26.6745 22.0577 26.8834C21.814 27.0923 21.674 27.3972 21.674 27.718C21.674 28.0389 21.814 28.3436 22.0577 28.5525C22.3012 28.7615 22.6238 28.8536 22.9409 28.8048H26.2031V32.0706C26.2534 32.4228 26.4711 32.7293 26.7874 32.8926C27.1038 33.0558 27.4795 33.0558 27.7961 32.8926C28.1124 32.7294 28.3301 32.4229 28.3802 32.0706V28.8048H31.646C31.9631 28.8536 32.2858 28.7614 32.5293 28.5525C32.7728 28.3436 32.9131 28.0389 32.9131 27.718C32.9131 27.3972 32.7728 27.0923 32.5293 26.8834C32.2858 26.6745 31.963 26.5823 31.646 26.6313H31.6459Z" fill="black"/>
           </svg>
         </div>
-        <SideNav />
+        <SideNav location={location} />
       </motion.main>
       <Nav location={location} />
       <AnimatePresence exitBeforeEnter>

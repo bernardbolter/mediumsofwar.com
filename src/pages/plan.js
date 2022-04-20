@@ -23,7 +23,7 @@ import * as styles from '../styles/plan.module.scss'
 const Plan = ({ location }) => {
     const size = useWindowSize()
     const [war, setWar] = useContext(WarContext)
-    console.log(war)
+    console.log(war.firstLoad)
 
     const plan = useMemo(() => {
         var slide
@@ -43,7 +43,7 @@ const Plan = ({ location }) => {
                     animate="animate"
                     exit="exit"
                     variants={
-                        war.planPosition == 0 && war.firstLoad
+                        war.planPosition === 0 && war.firstLoad
                         ? first 
                         : war.planPosition === 0
                         ? left
@@ -58,7 +58,7 @@ const Plan = ({ location }) => {
                     {slide}
             </motion.div>
         )
-    }, [war.planPosition])
+    }, [war.planPosition, war.firstLoad])
 
     return (
         <>
@@ -66,9 +66,11 @@ const Plan = ({ location }) => {
             <motion.div
                 className={styles.container}
                 initial={{
-                    translateY: "-100vh"
+                    opacity: war.firstLoad ? 0 : 1,
+                    translateY: war.firstLoad ? 0 : "-100vh"
                 }}
                 animate={{
+                    opacity: 1,
                     translateY: 0
                 }}
                 exit={{
@@ -114,7 +116,7 @@ const Plan = ({ location }) => {
                     </motion.div>
                 )}
             </motion.div>
-            <SideNav />
+            <SideNav location={location} />
             <Nav location={location}/>
         </>
     )

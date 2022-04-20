@@ -59,9 +59,10 @@ const WarProvider = ({ children }) => {
         
         firstLoad: true,
         detailFront: true,
-        enterFromPlan: true,
-        passThroughPlanToPrint: false,
-        passThroughPrintToPlan: true,
+
+        movingUp: false,
+        passThroughPlansToPrints: false,
+        passThroughPrintsToPlans: false,
 
         viewEnlarge: false,
         controlledPosition: { x: 0, y: 0 },
@@ -75,7 +76,7 @@ const WarProvider = ({ children }) => {
         var plansArray = []
         var printsArray = []
 
-        data.allDataJson.edges.map(page => {
+        data.allDataJson.edges.forEach(page => {
             plansArray = page.node['plans']
             printsArray = page.node['prints']
             rawPaintings = page.node['paintings']
@@ -85,8 +86,7 @@ const WarProvider = ({ children }) => {
             sketchesArray.push(painting)
             if (painting.completed) {
                 var paintingsObject = {}
-                data.allImageSharp.edges.map(image => {
-                    
+                data.allImageSharp.edges.forEach(image => {
                     if (image.node.original.src.toLowerCase().includes(painting.imageSlug.toLowerCase())) {
                         paintingsObject = {
                             ...painting,
@@ -94,8 +94,10 @@ const WarProvider = ({ children }) => {
                         }
                     }
                 })
-                paintingsArray.push(paintingsObject)
+                return paintingsArray.push(paintingsObject)
             }
+
+            return null
         })
 
         setWar(state => ({ 
