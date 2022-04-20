@@ -1,64 +1,31 @@
 import React, { useContext, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { useWindowSize } from "../helpers/useWindowSize"
 import { WarContext } from '../providers/WarProvider'
 
 import Logo from '../components/Logo'
 import SideNav from '../components/SideNav'
 import Nav from '../components/Nav'
-import Sketch from '../components/Sketch'
-import Intro from '../components/Intro'
-import So from '../components/So'
+import About from '../components/About'
+import Pitch from '../components/Pitch'
 import Sketches from '../components/Sketches'
 import Support from '../components/Support'
-
-import {
-    first,
-    left,
-    right
-  } from '../animations/paintingAnimations'
 
 import * as styles from '../styles/plan.module.scss'
 
 const Plan = ({ location }) => {
-    const size = useWindowSize()
-    const [war, setWar] = useContext(WarContext)
-    console.log(war.firstLoad)
+    const [war] = useContext(WarContext)
 
     const plan = useMemo(() => {
-        var slide
-        var short
-            if (war.planPosition === 0) {
-                slide = <Intro />
-            } else if (war.planPosition === 1) {
-                slide = <So />
-            } else if (war.planPosition === 2) {
-                slide = <Sketches />
-            } else {
-                slide = <Support />
-            }
-        return (
-            <motion.div
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    variants={
-                        war.planPosition === 0 && war.firstLoad
-                        ? first 
-                        : war.planPosition === 0
-                        ? left
-                        : right    
-                    }
-                    transition={{
-                        duration: 1.4
-                    }}
-                    key={war.planPosition}
-                    className={styles.planContainer}
-                >
-                    {slide}
-            </motion.div>
-        )
-    }, [war.planPosition, war.firstLoad])
+        if (war.planPosition === 0) {
+            return  <About />
+        } else if (war.planPosition === 1) {
+            return  <Pitch />
+        } else if (war.planPosition === 2) {
+            return <Sketches />
+        } else {
+            return <Support />
+        }
+    })
 
     return (
         <>
@@ -82,39 +49,8 @@ const Plan = ({ location }) => {
                 }}
             >
 
-                {war.planPosition !== 0 && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1 }}
-                        className={styles.leftLink}
-                        onClick={() => setWar(state => ({ ...state, planPosition: state.planPosition - 1, firstLoad: false }))}
-                    >
-                        <p>Intro</p>
-                        <svg viewBox="0 0 50 89">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M50 88.7903V70.8187L25.0889 50.7118L0 70.9963L0.177667 88.7903L24.9111 68.1495L50 88.7903ZM50 38.0784V20.2845L25.0889 0L0 20.2845L0.177667 38.0784L24.9111 17.6163L50 38.0784ZM50 63.345V45.551L25.0889 25.2666L0 45.551L0.177667 63.345L24.9111 42.8829L50 63.345Z" />
-                        </svg>
-                    </motion.div>
-                 )}
-
                 {plan}
 
-                {war.planPosition !== 3 && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1 }}
-                        className={styles.rightLink}
-                        onClick={() => setWar(state => ({ ...state, planPosition: state.planPosition + 1, firstLoad: false }))}
-                    >
-                        <p>So</p>
-                        <svg viewBox="0 0 50 89">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M50 88.7903V70.8187L25.0889 50.7118L0 70.9963L0.177667 88.7903L24.9111 68.1495L50 88.7903ZM50 38.0784V20.2845L25.0889 0L0 20.2845L0.177667 38.0784L24.9111 17.6163L50 38.0784ZM50 63.345V45.551L25.0889 25.2666L0 45.551L0.177667 63.345L24.9111 42.8829L50 63.345Z" />
-                        </svg>
-                    </motion.div>
-                )}
             </motion.div>
             <SideNav location={location} />
             <Nav location={location}/>
