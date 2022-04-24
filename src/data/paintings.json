@@ -76,19 +76,23 @@
 "plans" : [
         {
             "slug" : "about",
-            "short" : "About"
+            "short" : "About",
+            "video" : "https://madeinberlin.net/videos/mediums-of-war/mediums-of-war_overview"
         },
         {
             "slug" : "pitch",
-            "short" : "Pitch"
+            "short" : "Pitch",
+            "video" : "https://madeinberlin.net/videos/mediums-of-war/mediums-of-war_studio"
         },
         {
             "slug" : "sketches",
-            "short" : "Sketches"
+            "short" : "Sketches",
+            "video" : ""
         },
         {
             "slug" : "support",
-            "short" : "Support"
+            "short" : "Support",
+            "video" : ""
         }
     ],
 "prints" : [

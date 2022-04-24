@@ -18,31 +18,32 @@ const WarProvider = ({ children }) => {
             }
             allDataJson {
                 edges {
-                    node {
-                        paintings {
-                            colors
-                            completed
-                            extension
-                            how
-                            image
-                            imageSlug
-                            material
-                            medium
-                            palette
-                            short
-                            title
-                        }
-                        plans {
-                            slug
-                            short
-                        }
-                        prints {
-                            slug
-                            short
-                        }
+                  node {
+                    paintings {
+                      colors
+                      completed
+                      extension
+                      how
+                      image
+                      imageSlug
+                      material
+                      medium
+                      palette
+                      short
+                      title
                     }
+                    plans {
+                      short
+                      slug
+                      video
+                    }
+                    prints {
+                      short
+                      slug
+                    }
+                  }
                 }
-            }
+              }
         }
     `)
 

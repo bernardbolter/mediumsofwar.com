@@ -14,6 +14,7 @@ import * as styles from '../styles/plan.module.scss'
 
 const Plan = ({ location }) => {
     const [war] = useContext(WarContext)
+    console.log(war.plans)
 
     const plan = useMemo(() => {
         if (war.planPosition === 0) {
